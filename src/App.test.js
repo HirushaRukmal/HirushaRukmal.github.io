@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import App from './App';
 
-test('renders portfolio hero heading', () => {
+test('renders portfolio hero content', () => {
   render(<App />);
-  const headingElement = screen.getByText(/hi, i'm hirusha/i);
-  expect(headingElement).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /hirusha rukmal/i })).toBeInTheDocument();
 });

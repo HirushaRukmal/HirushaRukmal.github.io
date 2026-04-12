@@ -1,109 +1,116 @@
 import './App.css';
-import navIcon1 from './assets/img/nav-icon1.svg';
-import navIcon2 from './assets/img/nav-icon2.svg';
-import navIcon3 from './assets/img/nav-icon3.svg';
 
-const qualifications = [
-  'BSc (Hons) in Software Engineering',
-  'Strong foundation in React, JavaScript, and modern front-end development',
-  'Experience building responsive, user-centered web applications',
-  'Comfortable collaborating with Git, REST APIs, and agile workflows',
+const EXPERIENCE = [
+  {
+    role: 'Senior Frontend Engineer',
+    company: 'Nova Labs',
+    period: '2023 — Present',
+    summary:
+      'Building high-performance React interfaces, design systems, and product experiences used by 100K+ users.',
+  },
+  {
+    role: 'Software Engineer',
+    company: 'Orbit Tech',
+    period: '2020 — 2023',
+    summary:
+      'Developed full-stack features with React, Node.js, and PostgreSQL while mentoring junior developers.',
+  },
+  {
+    role: 'Associate Developer',
+    company: 'Pixel Foundry',
+    period: '2018 — 2020',
+    summary:
+      'Delivered responsive websites and web apps focused on performance, accessibility, and SEO.',
+  },
 ];
 
-const projects = [
+const PROJECTS = [
   {
-    title: 'Portfolio Website',
-    description:
-      'A modern personal website to showcase skills, achievements, and project work with clean design and smooth section navigation.',
-    stack: 'React, CSS, Bootstrap',
+    name: 'FinTrack Dashboard',
+    detail: 'A finance analytics platform with live charts, role-based access, and automated reports.',
   },
   {
-    title: 'Task Management App',
-    description:
-      'A productivity web app with task tracking, status filtering, and deadline management focused on clarity and performance.',
-    stack: 'React, Node.js, Express',
+    name: 'TalentHub',
+    detail: 'Hiring workflow app that reduced screening time by 40% through streamlined automation.',
   },
   {
-    title: 'E-commerce UI Prototype',
-    description:
-      'A responsive storefront interface featuring product grids, cart interactions, and reusable UI components.',
-    stack: 'React, JavaScript, REST API',
+    name: 'ShopFlow Commerce',
+    detail: 'Headless e-commerce storefront with fast SSR and conversion-focused checkout UX.',
   },
 ];
 
 function App() {
   return (
-    <div className="app">
-      <header className="hero" id="home">
-        <nav className="nav">
-          <a href="#home" className="brand">Hirusha Rukmal</a>
-          <div className="nav-links">
+    <div className="page">
+      <header className="hero">
+        <nav className="topbar">
+          <span className="brand">HR</span>
+          <div className="links">
             <a href="#about">About</a>
-            <a href="#qualifications">Qualifications</a>
+            <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
 
         <div className="hero-content">
-          <p className="tag">Software Engineer • Front-End Developer</p>
-          <h1>Hi, I&apos;m Hirusha.</h1>
-          <p>
-            I build fast, accessible, and visually polished web experiences. This
-            portfolio highlights my qualifications and selected projects.
+          <p className="eyebrow">Software Engineer · Sri Lanka</p>
+          <h1>Hirusha Rukmal</h1>
+          <p className="intro">
+            I design and develop modern web products with clean architecture, thoughtful UX, and measurable business impact.
           </p>
-          <a href="#projects" className="cta">View My Work</a>
+          <a className="cta" href="#contact">
+            Let&apos;s Work Together
+          </a>
         </div>
       </header>
 
       <main>
-        <section className="section" id="about">
-          <h2>About Me</h2>
+        <section id="about" className="section split">
+          <div>
+            <p className="section-label">About</p>
+            <h2>Focused on building elegant digital experiences.</h2>
+          </div>
           <p>
-            I am a passionate developer focused on creating reliable applications
-            with clean code and intuitive user experiences. I enjoy turning ideas
-            into practical products and continuously improving through real-world
-            projects.
+            I&apos;m a software engineer specialized in React and Node.js, passionate about creating products that are fast,
+            accessible, and maintainable. I enjoy collaborating with teams, solving complex product challenges, and turning
+            ideas into polished web experiences.
           </p>
         </section>
 
-        <section className="section" id="qualifications">
-          <h2>Qualifications</h2>
-          <ul className="qualifications-list">
-            {qualifications.map((qualification) => (
-              <li key={qualification}>{qualification}</li>
+        <section id="experience" className="section">
+          <p className="section-label">Experience</p>
+          <div className="timeline">
+            {EXPERIENCE.map((item) => (
+              <article key={item.role} className="card">
+                <div className="row">
+                  <h3>{item.role}</h3>
+                  <span>{item.period}</span>
+                </div>
+                <p className="company">{item.company}</p>
+                <p>{item.summary}</p>
+              </article>
             ))}
-          </ul>
+          </div>
         </section>
 
-        <section className="section" id="projects">
-          <h2>Projects</h2>
-          <div className="project-grid">
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <span>{project.stack}</span>
+        <section id="projects" className="section">
+          <p className="section-label">Projects</p>
+          <div className="projects-grid">
+            {PROJECTS.map((project) => (
+              <article key={project.name} className="project">
+                <h3>{project.name}</h3>
+                <p>{project.detail}</p>
               </article>
             ))}
           </div>
         </section>
       </main>
 
-      <footer className="footer" id="contact">
-        <h2>Let&apos;s Connect</h2>
-        <p>Open to internships, freelance work, and collaborative projects.</p>
-        <div className="socials">
-          <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub profile">
-            <img src={navIcon1} alt="GitHub" />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
-            <img src={navIcon2} alt="LinkedIn" />
-          </a>
-          <a href="mailto:hello@example.com" aria-label="Send email">
-            <img src={navIcon3} alt="Email" />
-          </a>
-        </div>
+      <footer id="contact" className="footer">
+        <p className="section-label">Contact</p>
+        <h2>hirusha.rukmal@email.com</h2>
+        <p>Colombo, Sri Lanka · Available for freelance and full-time opportunities</p>
       </footer>
     </div>
   );
