@@ -28,90 +28,89 @@ const PROJECTS = [
   {
     name: 'FinTrack Dashboard',
     detail: 'A finance analytics platform with live charts, role-based access, and automated reports.',
+    link: '#',
   },
   {
     name: 'TalentHub',
     detail: 'Hiring workflow app that reduced screening time by 40% through streamlined automation.',
+    link: '#',
   },
   {
     name: 'ShopFlow Commerce',
     detail: 'Headless e-commerce storefront with fast SSR and conversion-focused checkout UX.',
+    link: '#',
   },
 ];
 
 function App() {
   return (
-    <div className="page">
-      <header className="hero">
-        <nav className="topbar">
-          <span className="brand">HR</span>
-          <div className="links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </div>
+    <div className="portfolio">
+      <aside className="sidebar">
+        <div>
+          <p className="name">Hirusha Rukmal</p>
+          <h1>Software Engineer</h1>
+          <p className="tagline">I build reliable, accessible and performant digital experiences for the web.</p>
+        </div>
+
+        <nav className="sidebar-nav">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </nav>
 
-        <div className="hero-content">
-          <p className="eyebrow">Software Engineer · Sri Lanka</p>
-          <h1>Hirusha Rukmal</h1>
-          <p className="intro">
-            I design and develop modern web products with clean architecture, thoughtful UX, and measurable business impact.
-          </p>
-          <a className="cta" href="#contact">
-            Let&apos;s Work Together
+        <div className="socials" id="contact">
+          <a href="mailto:hirusha.rukmal@email.com">Email</a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+            LinkedIn
           </a>
         </div>
-      </header>
+      </aside>
 
-      <main>
-        <section id="about" className="section split">
-          <div>
-            <p className="section-label">About</p>
-            <h2>Focused on building elegant digital experiences.</h2>
-          </div>
+      <main className="content">
+        <section id="about" className="panel">
           <p>
-            I&apos;m a software engineer specialized in React and Node.js, passionate about creating products that are fast,
-            accessible, and maintainable. I enjoy collaborating with teams, solving complex product challenges, and turning
-            ideas into polished web experiences.
+            I&apos;m a software engineer with a strong focus on frontend development and product thinking. I enjoy turning
+            complex requirements into clean interfaces that feel effortless to use while staying easy to maintain.
+          </p>
+          <p>
+            Over the years, I&apos;ve worked across startups and product teams, building applications with React, Node.js,
+            and modern web tooling. I care deeply about quality, collaboration, and continuous improvement.
+          </p>
+          <p>
+            Outside work, I explore UI patterns, performance optimization, and practical architecture decisions that keep
+            products moving quickly without sacrificing long-term stability.
           </p>
         </section>
 
-        <section id="experience" className="section">
-          <p className="section-label">Experience</p>
-          <div className="timeline">
-            {EXPERIENCE.map((item) => (
-              <article key={item.role} className="card">
-                <div className="row">
-                  <h3>{item.role}</h3>
-                  <span>{item.period}</span>
-                </div>
-                <p className="company">{item.company}</p>
+        <section id="experience" className="panel cards">
+          {EXPERIENCE.map((item) => (
+            <article className="card" key={item.role}>
+              <span className="period">{item.period}</span>
+              <div>
+                <h2>
+                  {item.role} · <span>{item.company}</span>
+                </h2>
                 <p>{item.summary}</p>
-              </article>
-            ))}
-          </div>
+              </div>
+            </article>
+          ))}
         </section>
 
-        <section id="projects" className="section">
-          <p className="section-label">Projects</p>
-          <div className="projects-grid">
-            {PROJECTS.map((project) => (
-              <article key={project.name} className="project">
-                <h3>{project.name}</h3>
+        <section id="projects" className="panel cards">
+          {PROJECTS.map((project) => (
+            <a className="card project-card" href={project.link} key={project.name}>
+              <div>
+                <h2>{project.name}</h2>
                 <p>{project.detail}</p>
-              </article>
-            ))}
-          </div>
+              </div>
+            </a>
+          ))}
         </section>
       </main>
-
-      <footer id="contact" className="footer">
-        <p className="section-label">Contact</p>
-        <h2>hirusha.rukmal@email.com</h2>
-        <p>Colombo, Sri Lanka · Available for freelance and full-time opportunities</p>
-      </footer>
     </div>
   );
 }
