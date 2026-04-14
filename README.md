@@ -25,7 +25,3 @@ npm run preview
 - Projects
 - Contact
 - Footer
-
-## Resume file
-
-Your resume PDF is included in `public/Hirusha-Rukmal-Resume.pdf` and linked from the website.
